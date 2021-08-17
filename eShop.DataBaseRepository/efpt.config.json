@@ -1,0 +1,64 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "EmarketContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "DbModels",
+   "ProjectRootNamespace": "eShop.DataBaseRepository",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[orders].[OrderDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[orders].[Orders]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[orders].[OrderStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[products].[Categories]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[products].[ProductImages]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[products].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[products].[ProductsInCategories]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[products].[Units]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-V7759FH\\SQLEXPRESS.EMarket",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

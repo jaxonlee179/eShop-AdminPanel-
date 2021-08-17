@@ -1,0 +1,58 @@
+﻿
+
+@{
+    ViewBag.Title = "List of Products";
+}
+
+<div class="container">
+    <h2>Categories</h2>
+    <br />
+    <a onclick="showInPopup('@Url.Action("AddOrEdit","Category")','New Product')" class="btn btn-primary">Add Category</a>
+    @if (true)
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="col-sm-1">Photo</th>
+                    <th class="col-sm-1">Name</th>
+                    <th class="col-sm-1">Category</th>
+                    <th class="col-sm-1">Description</th>
+                    <th class="col-sm-1">Price</th>
+                    <th class="col-sm-1">Unit</th>
+                    <th class="col-sm-1">Quantity</th>
+                    <th class="col-sm-1">Edit</th>
+                    <th class="col-sm-1">Delete</th>
+                </tr>
+            </thead>
+            @*@foreach (var category in Model)
+            {
+                <tbody>
+                    <tr style="border-color:black">
+                        <td>@category.Name</td>
+                        <td>
+                            <a onclick="showInPopup('@Url.Action("AddOrEdit","Category", new {id = category.Id})','Edit Product')" class="btn btn-primary" style="background-color:forestgreen"><i class="bi bi-pencil-square" style="color:whitesmoke; font-size:20px"></i></a>
+                        </td>
+                        <td>
+                            <form asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" method="post">
+                                <span id="confirmDeleteSpan_@category.Id" style="display:none">
+                                    <span>Are you sure you want to delete?</span>
+                                    <button type="submit" class="btn btn-danger">Yes</button>
+                                    <a class="btn btn-primary" onclick="confirmDelete('@category.Id',false)">No</a>
+                                </span>
+
+                                <span id="deleteSpan_@category.Id"><a onclick="confirmDelete('@category.Id',true)" class="btn btn-primary" style="background-color:red"><i class="bi bi-trash" style="color:whitesmoke; font-size:20px"></i></a></span>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            }*@
+        </table>
+    }
+    else
+    {
+        <h4>No category was added so far</h4>
+    }
+</div>
+
+<script src="~/js/confirmDelete.js"></script>
+<script src="~/js/site.js"></script>
