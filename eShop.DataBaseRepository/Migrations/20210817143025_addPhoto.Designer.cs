@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShop.DatabaseRepository;
 
 namespace eShop.DatabaseRepository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210817143025_addPhoto")]
+    partial class addPhoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,7 +161,7 @@ namespace eShop.DatabaseRepository.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -311,11 +313,19 @@ namespace eShop.DatabaseRepository.Migrations
                     b.Property<DateTime?>("DateDeleted")
                         .HasColumnType("datetime");
 
-                    b.Property<byte?>("OrderStatusId")
+                    b.Property<byte>("OrderStatusId")
                         .HasColumnType("tinyint");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("money");
+
+                    b.Property<Guid>("UserAddressId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -484,7 +494,9 @@ namespace eShop.DatabaseRepository.Migrations
                     b.HasOne("eShop.DatabaseRepository.DbModels.OrderStatus", "OrderStatus")
                         .WithMany("Orders")
                         .HasForeignKey("OrderStatusId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasConstraintName("FK_Orders_OrderStatus")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("ApplicationUsers");
 

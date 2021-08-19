@@ -7,9 +7,11 @@ namespace eShop.Admin.Models
 {
     public class ProductsModel
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
-        public IEnumerable<string> Category { get; set; }
+        public string Category { get; set; }
 
         public string Description { get; set; }
 
@@ -18,5 +20,7 @@ namespace eShop.Admin.Models
         public string Unit { get; set; }
 
         public double Quantity { get; set; }
+
+        public string PhotoPath { get; set; }
     }
 }

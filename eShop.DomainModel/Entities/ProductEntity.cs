@@ -1,12 +1,13 @@
-﻿using System;
+﻿using eShop.DomainModel.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShop.DataTransferObject
+namespace eShop.DomainModel.Entities
 {
-    public class ProductsDTO
+   public class ProductEntity : BaseValueObjects
     {
         public string Id { get; set; }
 

@@ -10,6 +10,7 @@ namespace eShop.ApplicationService.ServiceInterfaces
     public interface ICategoriesApplicationService
     {
         IEnumerable<CategoriesDTO> GetCategories();
+
         CategoriesDTO GetCategoryById(string id);
 
         void AddCategory(CategoriesDTO model);

@@ -95,7 +95,6 @@ namespace eShop.Admin.Controllers
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
-                City = user.City,
                 Roles = userRoles
             };
 
@@ -115,7 +114,6 @@ namespace eShop.Admin.Controllers
             {
                 user.Email = model.Email;
                 user.UserName = model.UserName;
-                user.City = model.City;
                 user.DateChanged = DateTime.Now;
 
                 var result = await _userManager.UpdateAsync(user);

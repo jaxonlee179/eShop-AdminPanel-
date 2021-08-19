@@ -38,8 +38,6 @@ namespace eShop.Admin.Controllers
         [HttpGet]
         public IActionResult AddOrEdit(string id = _emptyString)
         {
-            //CategoryModel category = new CategoryModel();
-
             if (string.IsNullOrEmpty(id))
             {
                 return PartialView();

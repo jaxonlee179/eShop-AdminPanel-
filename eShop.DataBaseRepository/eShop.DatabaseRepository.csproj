@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\eShop.DataTransferObject\eShop.DataTransferObject.csproj" />
     <ProjectReference Include="..\eShop.DomainModel\eShop.DomainModel.csproj" />
     <ProjectReference Include="..\eShop.Utility\eShop.Utility.csproj" />
   </ItemGroup>

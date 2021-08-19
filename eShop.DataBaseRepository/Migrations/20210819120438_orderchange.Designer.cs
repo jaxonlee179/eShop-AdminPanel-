@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShop.DatabaseRepository;
 
 namespace eShop.DatabaseRepository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210819120438_orderchange")]
+    partial class orderchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -299,9 +301,6 @@ namespace eShop.DatabaseRepository.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
-                    b.Property<string>("ApplicationUsersId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime?>("DateChanged")
                         .HasColumnType("datetime");
 
@@ -317,11 +316,14 @@ namespace eShop.DatabaseRepository.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("money");
 
+                    b.Property<string>("UserIdId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUsersId");
-
                     b.HasIndex("OrderStatusId");
+
+                    b.HasIndex("UserIdId");
 
                     b.ToTable("Orders", "orders");
                 });
@@ -476,19 +478,19 @@ namespace eShop.DatabaseRepository.Migrations
 
             modelBuilder.Entity("eShop.DatabaseRepository.DbModels.Orders", b =>
                 {
-                    b.HasOne("eShop.DatabaseRepository.DbModels.ApplicationUser", "ApplicationUsers")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUsersId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("eShop.DatabaseRepository.DbModels.OrderStatus", "OrderStatus")
                         .WithMany("Orders")
                         .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("ApplicationUsers");
+                    b.HasOne("eShop.DatabaseRepository.DbModels.ApplicationUser", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("OrderStatus");
+
+                    b.Navigation("UserId");
                 });
 
             modelBuilder.Entity("eShop.DatabaseRepository.DbModels.Products", b =>

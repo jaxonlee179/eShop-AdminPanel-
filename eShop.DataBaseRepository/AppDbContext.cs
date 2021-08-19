@@ -24,7 +24,6 @@ namespace eShop.DatabaseRepository
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<ProductImages> ProductImages { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsInCategories> ProductsInCategories { get; set; }
         public virtual DbSet<Units> Units { get; set; }
@@ -107,41 +106,6 @@ namespace eShop.DatabaseRepository
                 entity.Property(e => e.DateDeleted).HasColumnType("datetime");
 
                 entity.Property(e => e.TotalPrice).HasColumnType("money");
-
-                entity.Property(e => e.UserId)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.OrderStatus)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.OrderStatusId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Orders_OrderStatus");
-            });
-
-            modelBuilder.Entity<ProductImages>(entity =>
-            {
-                entity.ToTable("ProductImages", "products");
-
-                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
-
-                entity.Property(e => e.DateChanged).HasColumnType("datetime");
-
-                entity.Property(e => e.DateCreate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.DateDeleted).HasColumnType("datetime");
-
-                entity.Property(e => e.ImagePath)
-                    .IsRequired()
-                    .HasMaxLength(300);
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.ProductImages)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ProductImages_Products");
             });
 
             modelBuilder.Entity<Products>(entity =>

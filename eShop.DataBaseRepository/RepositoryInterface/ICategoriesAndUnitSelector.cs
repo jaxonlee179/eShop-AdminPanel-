@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace eShop.DatabaseRepository.RepositoryInterface
 {
-    public interface IProductsInCategoryRepository
+    public interface ICategoriesAndUnitSelector
     {
+        T SelectAllCategoriesAndUnits<T>(T model) where T : class, new();
     }
 }

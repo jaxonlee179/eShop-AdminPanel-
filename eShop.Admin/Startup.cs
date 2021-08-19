@@ -54,21 +54,6 @@ namespace eShop.Admin
             services.AddScoped<IProductsRepository, ProductRepository>();
             services.AddScoped<IProductsServiceDomain, ProductsServiceDomain>();
             services.AddScoped<IProductsApplicationService, ProductsApplicationService>();
-
-            //ProductsInCategories
-            services.AddScoped<IProductsInCategoryRepository, ProductsInCategoryRepository>();
-            services.AddScoped<IProductsInCategoryServiceDomain, ProductsInCategoryServiceDomain>();
-            services.AddScoped<IProductsInCategoryApplicationService, ProductsInCategoryApplicationService>();
-
-            //Photos
-            services.AddScoped<IPhotoRepository, PhotoRepository>();
-            services.AddScoped<IPhotoServiceDomain, PhotoServiceDomain>();
-            services.AddScoped<IPhotoApplicationService, PhotoServiceApplication>();
-
-            //units 
-            services.AddScoped<IUnitRepository, UnitRepository>();
-            services.AddScoped<IUnitServiceDomain, UnitServiceDomain>();
-            services.AddScoped<IUnitServiceApplication, UnitApplicationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
