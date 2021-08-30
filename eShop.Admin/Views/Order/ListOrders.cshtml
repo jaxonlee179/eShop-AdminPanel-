@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OrderModel>
+
+@{
+    ViewBag.Title = "List of Orders";
+}
+
+<div class="container">
+    <h2>Orders</h2>
+    <br />
+    @if (Model.Any())
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="col-sm-1">Email</th>
+                    <th class="col-sm-1">Address</th>
+                    <th class="col-sm-1">Order status</th>
+                    <th class="col-sm-1">Total Price</th>
+                    <th class="col-sm-1">Creation Date</th>
+                    <th class="col-sm-1">Modification Date</th>
+                    <th class="col-sm-1">Details</th>
+                </tr>
+            </thead>
+            @foreach (var order in Model)
+            {
+                <tbody>
+                    <tr style="border-color:black">
+
+                        <td>@order.Email</td>
+                        <td>@order.Address</td>
+                        <td>@order.OrderStatus</td>
+                        <td>@order.TotalPrice</td>
+                        <td>@order.DateCreated</td>
+                        <td>@order.DateChanged</td>
+
+                        <td>
+                            <a onclick="showInPopup('@Url.Action("OrderDetails","Order", new {id = order.Id})','Order Details')" class="btn btn-primary" style="background-color:forestgreen"><i class="bi bi-list" style="color:whitesmoke; font-size:20px"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    }
+    else
+    {
+        <h4>No Order was added so far</h4>
+    }
+</div>
+
+<script src="~/js/site.js"></script>

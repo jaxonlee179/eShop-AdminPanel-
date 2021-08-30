@@ -42,7 +42,6 @@ namespace eShop.Admin.ViewModels
         [Required]
         public double Quantity { get; set; }
 
-        [Required]
         public IFormFile Photo { get; set; }
 
         public string PhotoPath { get; set; }

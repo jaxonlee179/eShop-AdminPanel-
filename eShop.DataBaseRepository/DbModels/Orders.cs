@@ -14,7 +14,7 @@ namespace eShop.DatabaseRepository.DbModels
         }
 
         public Guid Id { get; set; }
-        public decimal TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateChanged { get; set; }
         public DateTime? DateDeleted { get; set; }

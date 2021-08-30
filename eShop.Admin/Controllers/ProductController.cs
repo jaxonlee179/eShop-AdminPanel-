@@ -10,10 +10,11 @@ using eShop.Admin.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using eShop.DataTransferObject;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eShop.Admin.Controllers
 {
-    //DI productImage , Unit, Category, ProductsinCategories
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductsApplicationService _productsApplicationService;
@@ -82,7 +83,7 @@ namespace eShop.Admin.Controllers
                 }
                 else
                 {
-                    if (model.PhotoPath is not null)
+                    if (model.Photo is not null)
                     {
                         DeleteUploadedFile(model.PhotoPath);
                     }

@@ -10,8 +10,8 @@ namespace eShop.DatabaseRepository.DbModels
     {
         public Guid OrderId { get; set; }
         public Guid ProductId { get; set; }
-        public decimal Quantity { get; set; }
-        public decimal Price { get; set; }
+        public double Quantity { get; set; }
+        public double Price { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? Datechanged { get; set; }
         public DateTime? DateDeleted { get; set; }

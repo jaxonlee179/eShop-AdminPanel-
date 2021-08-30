@@ -1,0 +1,24 @@
+﻿@model IEnumerable<OrderDetailsModel>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="col-sm-1">Name</th>
+                <th class="col-sm-1">Price</th>
+                <th class="col-sm-1">Quantity   </th>
+            </tr>
+        </thead>
+        @foreach (var detail in Model)
+        {
+            <tbody>
+                <tr style="border-color:black">
+
+                    <td>@detail.ProductName</td>
+                    <td>@detail.Price</td>
+                    <td>@detail.Quantity</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>

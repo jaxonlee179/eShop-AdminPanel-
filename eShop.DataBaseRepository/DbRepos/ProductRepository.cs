@@ -108,14 +108,12 @@ namespace eShop.DatabaseRepository.DbRepos
                     using (_context = new AppDbContext())
                     {
                         var query = (from pc in _context.ProductsInCategories where pc.ProductId == Guid.Parse(id) select pc).FirstOrDefault();
-                        _context.Entry(query).State = EntityState.Deleted;
-                        //_context.ProductsInCategories.Remove(query);
 
+                        _context.Remove(query);
                         _context.SaveChanges();
 
                         var productQuery = (from p in _context.Products where p.Id == Guid.Parse(id) select p).FirstOrDefault();
-
-                        _context.Products.Remove(productQuery);
+                        productQuery.DateDeleted = DateTime.Now;
                         _context.SaveChanges();
                     }
                     transaction.Complete();

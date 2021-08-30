@@ -54,6 +54,11 @@ namespace eShop.Admin
             services.AddScoped<IProductsRepository, ProductRepository>();
             services.AddScoped<IProductsServiceDomain, ProductsServiceDomain>();
             services.AddScoped<IProductsApplicationService, ProductsApplicationService>();
+
+            //Orders
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
+            services.AddScoped<IOrdersServiceDomain, OrdersServiceDomain>();
+            services.AddScoped<IOrdersApplicationService, OrdersApplicationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
